@@ -100,8 +100,10 @@ pub fn build(b: *std.Build) void {
             //"-sEXPORTED_FUNCTIONS=_main,__builtin_return_address",
 
             "-sUSE_OFFSET_CONVERTER", // for @returnAddress in std.mem.Allocator interface
-            // "--shell-file",
-            // b.path("src/shell.html").getPath(b),
+            "--shell-file",
+            b.path("resources/shell.html").getPath(b),
+            "--embed-file",
+            "resources/"
         });
 
         const link_items: []const *std.Build.Step.Compile = &.{
